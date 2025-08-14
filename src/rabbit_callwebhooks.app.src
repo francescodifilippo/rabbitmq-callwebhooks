@@ -1,0 +1,23 @@
+%%
+%% Application specification for the call webhooks plugin.
+%%
+{application, rabbit_callwebhooks,
+ [{description, "RabbitMQ call webhooks plugin"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {modules, [rabbit_callwebhooks_app,
+             rabbit_callwebhooks_sup,
+             rabbit_callwebhooks_worker]},
+  %% Dependent applications must include at least kernel and stdlib.  The
+  %% rabbitmq_server application provides the core broker APIs.  amqp_client
+  %% supplies a direct AMQP client and inets provides the HTTP client.
+  {applications, [kernel, stdlib, rabbitmq_server, amqp_client, inets]},
+  %% The entry point for the application.  See rabbit_callwebhooks_app.erl.
+  {mod, {rabbit_callwebhooks_app, []}},
+  %% Environment.  The plugin expects a list of webhook maps under
+  %% rabbit_callwebhooks.webhooks.  See README for configuration examples.
+  {env, []},
+  %% Require modern versions of RabbitMQ (3.10+).  The list can be
+  %% expanded when supporting future releases.
+  {broker_version_requirements, ["3.10.0", "3.11.0"]}
+ ]}.
