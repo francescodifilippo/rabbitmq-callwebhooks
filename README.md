@@ -2,7 +2,7 @@
 
 This plugin extends RabbitMQ by forwarding messages from one or more queues to
 arbitrary HTTP endpoints (often called *webhooks*).  It is inspired by the
-unmaintained `rabbitmq-webhooks` plugin by Jon Brisbin【506323775653347†L260-L365】 and is designed to
+unmaintained `rabbitmq-webhooks` plugin by Jon Brisbin and is designed to
 work with modern RabbitMQ releases (3.10 and newer).  The code provided here
 forms the basis for a complete plugin; it can be built into an `.ez` file and
 enabled on a running broker.  The plugin connects to the broker using a
